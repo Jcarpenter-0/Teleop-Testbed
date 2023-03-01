@@ -1,0 +1,23 @@
+
+ssh-add id_rsa_umn
+
+ssh-add /home/field-laptop/.ssh/id_rsa_umn
+ssh-add /home/field-laptop/.ssh/ross_imc.pem
+
+ssh ubuntu@15.181.49.254
+
+4:17 PM May 8th, LiDAR and Camera data in same file (camera's last one)
+
+LiDAR still fragmenting (seemingly 1400 MTU is too large?)
+Client not ending properly (likely due to the ffmpeg)
+
+16:32 finished LiDARs, started "radar 1"
+16:45 Finished RADAR 1, started enhanced fix GPS
+
+16:57 finished ehnached
+
+16:58ish started IMU
+
+17:22 GPS started, Odo ended
+
+

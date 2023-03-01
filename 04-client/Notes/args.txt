@@ -1,0 +1,27 @@
+ffmpeg -i 230116_170520582.mp4 -vf v360=equirect:ih_fov=180:iv_fov=180 output-180.mp4
+ffmpeg -i 230116_170520582.mp4 -vf v360=equirect:ih_fov=360:iv_fov=360 output-360.mp4
+
+
+https://www.danielplayfaircal.com/blogging/ffmpeg/lensfun/v360/lenscorrection/fisheye/dodgeball/2020/03/24/correcting-lens-distortion-with-ffmpeg.html
+
+# Full adjuster
+ffmpeg -r 30 -i 221216_085516516.mp4 -vf v360=equirect:ih_fov=360:iv_fov=360 output-360.mp4
+
+# Getting select frame
+ffmpeg -ss 00:00:07 -i 230116_170520582.mp4 -frames:v 1 -q:v 2 output.jpg
+
+# Change Frames
+https://ottverse.com/change-resolution-resize-scale-video-using-ffmpeg/
+
+# Get individual frames
+ffmpeg -i output-360.mp4 -r 1 video-frames-to-process/frame-%08d.png
+
+ffmpeg -i 221220_092521140_trim.mp4 -r 1 -vf v360=equirect:ih_fov=360:iv_fov=360 video-frames-to-process/221220_092521140-%08d.png
+
+# Stich images into video
+ffmpeg -framerate 1 -i visualization-images/frame-%08d.png -c:v libx264 -r 1 -pix_fmt yuv420p stitched-classified-video.mp4
+
+# Subset copy
+ffmpeg -ss 00:00:00 -to 00:30:00 -i 221220_140310672_trim.mp4 -c copy 221220_140310672_trim-subset.mp4
+
+https://ottverse.com/cbr-crf-changing-resolution-using-ffmpeg/

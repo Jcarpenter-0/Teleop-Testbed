@@ -1,0 +1,3 @@
+#
+ffprobe -rtsp_transport tcp -i rtsp://localhost:8554/mystream -select_streams v:0 -fflags nobuffer -unit -show_frames >> client-log.txt
+

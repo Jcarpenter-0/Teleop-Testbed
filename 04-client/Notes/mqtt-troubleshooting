@@ -1,0 +1,7 @@
+<serialno>/<reportname>/
+
+6P2044508601A139
+
+mosquitto -v -c config file
+
+

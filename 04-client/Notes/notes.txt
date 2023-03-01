@@ -1,0 +1,26 @@
+RTSP TCP may be the only thing that works "over the live internet"...
+
+https://github.com/aler9/mediamtx#rtsp-protocol to have the rtsp server save the streams directly
+
+
+
+chmod 400 ross_imc.pem
+ssh -i "ross_imc.pem" ubuntu@ec2-15-181-49-199.compute-1.amazonaws.com
+
+
+ssh -i .ssh/ross_imc.pem ubuntu@15.181.49.199
+
+
+ cameraCommand = ['ffmpeg', '-rtsp_transport', 'udp', '-i', 'rtsp://{}:{}/camera-{}'.format(IngestIP, IngestPort, CameraID), '-fflags', 'nobuffer', '-vcodec', 'copy', 'rtsp-output-{}-cameranumber-{}-failures-{}.mp4'.format(currentTimeString, CameraID, videoFailures)]
+
+
+# The usage of 
+http://www.live555.com/openRTSP/#source-code
+http://www.live555.com/liveMedia/#testProgs
+
+./openRTSP -F rtsp-camera-1 -V -t -Q -m rtsp://localhost:8554/camera-1
+
+# Write out the video to a file with prefix (-F), be quiet (-V), use TCP (-t), provide network QoS (-Q), write out each frame (-m)
+
+Server notes
+ssh -i ~/.ssh/ross_imc.pem ubuntu@15.181.49.254

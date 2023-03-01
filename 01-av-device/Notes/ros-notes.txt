@@ -1,0 +1,7 @@
+# http://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
+
+To run ros2,
+
+source /opt/ros/humble/setup.sh
+
+ros2 run file_folder file

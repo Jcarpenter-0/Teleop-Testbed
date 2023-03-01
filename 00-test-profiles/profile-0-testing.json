@@ -1,0 +1,22 @@
+{
+	"Client-Logging-Directory": "./../../../Datasets/test-dir/client-data/",
+	"Server-Logging-Directory": "./../../../Datasets/test-dir/server-data/",
+	"Target-Server-IP":"localhost",
+	"Test-Duration-Seconds":15,
+	"Client-Monitor-Command": null,
+	"Server-Monitor-Command": null,
+    "Ping-Command": "python3 00-ping.py localhost",
+    "TraceRoute-Command": "python3 00-traceroute.py localhost 10.0",
+	"Client-Iperf3-Command": "iperf3 -c localhost -t 10 -b 1M -p 4090 -i 1 -J --logfile ./Additional-Iperf-Load.json",
+	"Server-Iperf3-Command": "iperf3 -s -p 4090 -J --logfile ./Additional-Iperf-Load.json",
+	"Client-Misc-Commands": [],
+	"Client-Camera-Commands": ["python3 ../00-sensor-sources/00-camera-playback.py localhost 8554 ../../../Datasets/sensor-inputs-export/crf-23-fps-30-Rural-RGB-Camera-Raw-.mp4 libx264 0 tcp 1"],
+	"Client-LiDAR-Commands": [],
+	"Client-Sensor-Commands": [],
+	"Server-Camera-Commands": ["python3 01-camera-client.py localhost 8554 1"],
+	"Server-LiDAR-Commands": [],
+	"Server-Sensor-Commands": [],
+	"Server-Misc-Commands": ["./mediamtx"],
+	"Client-File-Cleanups": {"./ping-*-*.txt": null, "./traceoute-*-*.txt": "traceroutes/", "./test.pcap": null, "./camera-*-audit-log.csv": null, "./*.json": null, "./sensor-*-*-logs.csv": null, "./sensor-*-tagged-compressed-*.data":null},
+	"Server-File-Cleanups": {"./saved_camera-*_*.ts": "camera-videos/", "./test.pcap": null, "./rtsp-*-camera-*-video-*": "camera-frames/", "./sensor-*-*-audit-logs.csv": null, "./sensor-*-tagged-compressed-*.data": null}
+}

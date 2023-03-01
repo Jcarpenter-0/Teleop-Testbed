@@ -1,0 +1,4 @@
+# drop frames if too slow to keep up, no buffer, sync audio/video using the video not external or audio
+ffplay -stats -report -v debug -fflags nobuffer -framedrop -sync video -rtsp_transport tcp rtsp://localhost:8554/mystream
+
+ffplay -fast -fflags nobuffer -framedrop -sync ext -rtsp_transport udp rtsp://localhost:8554/001

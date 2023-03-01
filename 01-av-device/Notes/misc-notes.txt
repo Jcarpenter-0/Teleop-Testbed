@@ -1,0 +1,39 @@
+# Python subprocess management
+# https://alexandra-zaharia.github.io/posts/kill-subprocess-and-its-children-on-timeout-python/
+# https://superfastpython.com/kill-all-child-processes-in-python/
+
+
+# Manipulation of Ffmpeg and signint
+# https://trac.ffmpeg.org/ticket/9009
+
+https://stackoverflow.com/questions/26753147/how-to-gzip-a-bytearray-in-python
+
+Compression techniques
+
+https://ottverse.com/cbr-crf-changing-resolution-using-ffmpeg/
+
+
+# Reading pcap data
+tshark -r test.pcapng -q -z rtp,streams
+
+
+# Old Raw Command
+        CameraCommands.append(
+            ['ffmpeg', '-report', '-stats', '-re', '-i', CameraSource.format(cameraNumber), '-vcodec', inputCodec, '-crf', inputCRF, '-map',
+             '0:v', '-fflags', 'nobuffer', '-vf', inputResolution, '-r', outputFrameRate, '-f', 'rtsp', '-rtsp_transport', RTSPTransport,
+             'rtsp://{}:8554/camera-{}'.format(targetServerID, cameraNumber)])
+
+
+https://trac.ffmpeg.org/wiki/Encode/H.264
+
+
+
+    cameraCommand = ['ffmpeg', '-report', '-loglevel', 'error', '-re', '-i',
+                     IngestVideoFile, '-vcodec', EncodingApproach,
+                     '-map', '0:v', '-fflags', 'nobuffer', '-vf', InputResolution,
+                     '-r', OutputFrameRate, '-b:v', '{}K'.format(CameraTargetBitRateAvgKb),
+                     '-maxrate', '{}K'.format(int(CameraTargetBitRateAvgKb*1.50)),
+                     '-minrate', '{}K'.format(int(CameraTargetBitRateAvgKb/2)),
+                     '-bufsize', '{}K'.format(int(CameraTargetBitRateAvgKb*1.50)),
+                     '-f', 'rtsp', '-rtsp_transport', RTSPTransport,
+                     'rtsp://{}:{}/camera-{}'.format(TargetIP, TargetPort, TargetPort)]
